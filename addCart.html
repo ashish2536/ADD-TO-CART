@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <link rel="stylesheet" href="remixicon/remixicon.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="title">
+            <h2>Grumee</h2>
+        </div>
+            <nav>
+                <ul>
+                    <li><a href="javascript:viewData()">Home</a></li>
+                    <li><a href="javascript:addPanel()">Add Product</a></li>
+                    <li><a href="javascript:cartPanel()">Show Cart</a></li>
+                </ul>
+            </nav>
+        <div></div>
+    </div>
+    </header>
+    <div class="addData">
+        <h2>Add Product :</h2>
+        <div class="feild">
+            <h4 class="text">Product</h4>
+            <div>:<input type="text" id="name1"></div>
+        </div>
+        <div class="feild">
+            <h4 class="text">Old Price </h4>
+            <div>:<input type="text" id="old_price"/></div>
+        </div>
+        <div class="feild">
+            <h4 class="text">New Price </h4>
+            <div>:<input type="text" id="price"/></div>
+        </div>
+        <div class="feild">
+            <h4 class="text">Quantity </h4>
+            <div>:<input type="text" id="qty"/></div>
+        </div>
+        <div class="feild">
+            <h4 class="text">Rating </h4>
+            <div>:<input type="text" id="rating"/></div>
+        </div>
+        <div class="feild">
+            <h4 class="text">Image </h4>
+            <div>:<input type="file" id="image"/></div>
+        </div>
+        <input type="submit" id="button" value="Add Data" onclick="addData()">
+    </div>
+
+    <!-- Products -->
+    <div class="container">
+        <h2>Products :</h2>
+        <div id="productList">
+            <!-- Products from localstorage -->
+        </div>
+    </div>
+    <div class="message" id="message">
+        <!-- Messeges from script -->
+    </div>
+
+    <!-- Cart -->
+    <div class="cart-sign">
+        <i class="ri-shopping-cart-2-fill" id="pro-cart"></i>
+        <div class="badge" id="badge"></div>
+    </div>
+    <div class="cart">
+        <h3>Your Cart</h3>
+        <div class="cart_inner" id="cart_inner">
+            <!-- Cart products -->
+        </div>
+        <div class="total">
+            <h2>Total amount : &#x20B9; <span id="totalAmt">0</span></h2>
+        </div>
+    </div>
+
+    <script src="js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

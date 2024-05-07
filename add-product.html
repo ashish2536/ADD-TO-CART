@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500&family=Jost:wght@500&family=Poppins:wght@300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="d-flex aling-content">
+                <a href="add-product.html" class="logo">GROMEE</a>
+                <ul class="d-flex">
+                    <li><a href="add-product.html">HOME</a></li>
+                    <li><a href="view-product.html" target="_blank">SHOWCART</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <form onsubmit="return submitData(event)">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td>price:</td>
+                <td><input type="text" id="price"></td>
+            </tr>
+            <tr>
+                <td>oldprice:</td>
+                <td><input type="text" id="oldpr"></td>
+            </tr>
+            <tr>
+                <td>Stock:</td>
+                <td><input type="text" id="stock"></td>
+            </tr>
+            <tr>
+                <td>decscription:</td>
+                <td><textarea type="text" id="decs"></textarea></td>
+            </tr>
+            <tr>
+                <td>image:</td>
+                <td><input type="file" id="img"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="btn" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+
+
+</body>
+<script>
+
+
+
+
+    var product = [];
+
+
+    function submitData(e) {
+
+        console.log(product);
+
+        product = JSON.parse(localStorage.getItem('product')) || [];
+
+        e.preventDefault();
+
+        var name = document.querySelector("#name").value;
+        var price = document.querySelector("#price").value;
+        var oldpr = document.querySelector("#oldpr").value;
+        var decs = document.querySelector("#decs").value;
+        var imgname = document.querySelector("#img").files[0];
+        var stock = document.querySelector("#stock").value;
+        var id = Math.round(Math.random() * 100);
+
+        var pobj = {
+            name: name,
+            price: price,
+            oldpr: oldpr,
+            decs: decs,
+            imgname: imgname.name,
+            stock: stock,
+            id: id
+        }
+
+        product.push(pobj);
+
+        localStorage.setItem('product', JSON.stringify(product));
+
+
+        var name = document.querySelector("#name").value = "";
+        var price = document.querySelector("#price").value = "";
+        var oldpr = document.querySelector("#oldpr").value = "";
+        var decs = document.querySelector("#decs").value = "";
+        var imgname = document.querySelector("#img").files[0] = "";
+        var stock = document.querySelector("#stock").value = "";
+
+    }
+
+</script>
+
+</html>

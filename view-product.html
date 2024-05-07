@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="css/cart.css">
+
+<a href="cart.html" target="_blank" class="cart">
+  <h1 id="countcart">Cart(0)</h1>
+</a>
+<input type="text" id="search" onkeyup="return searching()" placeholder="Enter char and digit" />
+
+<div id="view"></div>
+
+<script>
+
+
+  var oldcat1 = JSON.parse(localStorage.getItem('cartdata')) || [];
+  document.getElementById("countcart").innerHTML = oldcat1 == null ? "cart(0)" : `cart(${oldcat1.length})`;
+
+  var product = JSON.parse(localStorage.getItem('product'));
+
+  var list = `<div style = "display : flex; flex-wrap: wrap;" class="container">`;
+  product.forEach((v, i) => {
+    list += `<div style = "margin-left : 15px" class="box-item">`;
+    list += `<div class="img-box"><img src="images/${v.imgname}"></div>`;
+    list += `<h2>${v.name}</h2>`;
+    list += `<p>${v.price},<span>${v.oldpr}</p>`;
+    list += `<p>${v.decs}</p>`;
+    list += `<p>${v.stock}</p>`;
+    list += `<button onclick="return addcart(${v.id})">ADD Cart</button>`;
+    list += `</div>`;
+  });
+
+  list += `</div>`;
+  document.getElementById("view").innerHTML = list;
+
+
+  var cart = [];
+
+  function addcart(id) {
+
+    var oldcart = JSON.parse(localStorage.getItem('cartdata')) || [];
+
+    var index = oldcart.findIndex((v, i) => v.id == id);
+
+    if (index != -1) {
+
+      alert("this product is already in cart");
+
+    } else {
+
+      product.forEach((v, i) => {
+
+        if (id == v.id) {
+          delete (v.oldpr);
+          delete (v.decs);
+          delete (v.stock);
+          v.qunatity = 1;
+          cart.push(v);
+        }
+
+      });
+
+      document.getElementById("countcart").innerHTML = `cart(${cart.length})`;
+      localStorage.setItem('cartdata', JSON.stringify(cart));
+    }
+
+  }
+
+  function searching() {
+    var se = document.getElementById('search').value;
+    let prosearch = product.filter((v, i) => {
+      if (v.name.match(se) || v.price.match(se)) {
+        return v;
+      }
+      })
+      var list = `<div style = "display : flex; flex-wrap: wrap;" class="container">`;
+        prosearch.forEach((v, i) => {
+          list += `<div style = "margin-left : 15px" class="box-item">`;
+          list += `<div class="img-box"><img src="images/${v.imgname}"></div>`;
+          list += `<h2>${v.name}</h2>`;
+          list += `<p>${v.price},<span>${v.oldpr}</p>`;
+          list += `<p>${v.decs}</p>`;
+          list += `<p>${v.stock}</p>`;
+          list += `<button onclick="return addcart(${v.id})">ADD Cart</button>`;
+          list += `</div>`;
+        });
+
+        list += `</div>`;
+        document.getElementById("view").innerHTML = list;
+
+  }
+
+
+
+</script>

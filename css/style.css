@@ -1,0 +1,274 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+    width: 1140px;
+    margin: 0 auto;
+    padding: 40px 15px;
+}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style: none;
+}
+.title h2{
+    font-size: 28px;
+    border: none !important;
+}
+header{
+    background-color: rgba(217, 217, 217, 0.737);
+    width: 100%;
+    height: 75px;
+}
+header .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    height: 100%;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+}
+nav ul li{
+    margin: 0 20px;
+}
+nav ul li a{
+    color: black;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 5px;
+    transition: all .1s linear;
+}
+nav ul li a:hover{
+    border-bottom: 1px solid black;
+    padding-bottom: 2px;
+}
+#productList{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#productList .item img{
+    height: 120px;
+}
+.item{
+    width: 33%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 10px;
+    margin: 15px 0;
+    height: 190px;
+}
+.btn{
+    background-color: rgb(186, 186, 186);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white !important;
+}
+.rate{
+    margin-bottom: 10px !important;
+}
+.deleteBtn{
+    display: flex;
+    align-self: flex-start;
+    font-size: 20px;
+}
+.item:hover{
+    background-color: rgba(217, 217, 217, 0.737);
+}
+.content{
+    margin: 0 20px ;
+}
+.content h4{
+    margin: 5px 0;
+}
+.item a{
+    color: black;
+}
+#productList a{
+    display: inline;
+    height: 20px;
+}
+#productList a:hover::after{
+    display: inline;
+}
+.message{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgb(89, 219, 248);
+    padding: 10px;
+    color: white;
+    visibility: hidden;
+    border-radius: 5px;
+}
+.addData{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 250px;
+    margin: 5px 15px;
+}
+.text{
+    font-size: 18px;
+}
+.container h2{
+    border-bottom: 2px solid black;
+    display: inline;
+}
+.feild{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+}
+#button{
+    width: 200px;
+    font-size: 18px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+input[type=file]
+{
+    border: none;
+}
+input::file-selector-button {
+    background-color: rgb(241, 241, 251);
+    border: 1px solid black;
+    font-size: 14px;
+    padding: 5px 7px;
+}
+.cart-sign{
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    z-index: 9;
+}
+.cart-sign i{
+    cursor: pointer;
+    font-size: 30px;
+}
+.badge{
+    position: fixed;
+    top: 18px;
+    right: 25px;
+    height: 13px;
+    width: 13px;
+    line-height: 12px;
+    font-size: 10px;
+    color: white;
+    background-color: rgb(0, 85, 255);
+    border-radius: 50%;
+    display: none;
+}
+.cart , .addData{
+    transition: all .2s linear;
+    position: fixed;
+    right: -300px;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    background-color: rgb(241, 241, 251);
+    padding: 40px 10px 10px 0px;
+}
+.addData{
+    left: -450px;
+    width: 450px;
+    padding: 10px;
+}
+.cart h3{
+    font-size: 28px;
+    display: inline;
+    border-bottom: 2px solid black;
+    margin: 20px;
+}
+.pro_index{
+    font-size: 20px;
+}
+.cart_inner{
+    margin-top: 50px;
+    height: 83%;
+    overflow: auto;
+}
+.cart_product{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 15px 0;
+}
+.innerImage{
+    width: 20%;
+    text-align: center;
+}
+.innerText{
+    width: 30%;
+}
+.pro_index{
+    margin-right: 10px;
+}
+.innerRemove i{
+    font-size: 20px;
+    color: black;
+}
+.total{
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(221, 221, 231);
+}
+.total h2{
+    font-size: 22px;
+    padding: 15px;
+}
+.addData h2{
+    font-size: 24px;
+    margin: 50px 0;
+    border-bottom: 2px solid black;
+}
+.qty{
+    width: 60px;
+    height: 20px;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    margin: 10px;
+}
+.incre, .decre, .qtyNo{
+    width: 33.33%;
+    height: 100%;
+    text-align: center;
+    color: black;
+    line-height: 20px;
+    border-right: 2px solid rgb(241, 241, 251);
+    user-select: none;
+    cursor: pointer;
+}
+.incre{
+    border: none;
+}
+.qtyNo{
+    cursor: default;
+}
